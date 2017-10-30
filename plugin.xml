@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+  xmlns="http://apache.org/cordova/ns/plugins/1.0"
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  id="cordova-plugin-feedreader"
+  version="1.0.0"
+  >
+
+  <name>cordova-plugin-feedreader</name>
+  <description>Plugin for Cordova (or PhoneGap) 3.0+ to read rss feeds</description>
+  <keywords>cordova,android,rss,atom,feed,reader,xml,parser</keywords>
+  <repo>https://github.com/shuhailshuvo/cordova-plugin-feedreader.git</repo>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0" />
+  </engines>
+
+  <asset src="www/FeedReader.js" target="js/FeedReader.js"/>
+
+  <js-module src="www/FeedReader.js" name="FeedReader">
+    <clobbers target="FeedReader" />
+  </js-module>
+
+  <platform name="android">
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="FeedReader">
+        <param name="android-package" value="yapps.plugins.FeedReader"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/yapps/plugins/FeedReader/FeedReader.java" target-dir="src/yapps/plugins/FeedReader/"/>
+  </platform>
+
+  <platform name="ios">
+    
+    <config-file target="config.xml" parent="/widget">
+      <feature name="FeedReader">
+        <param name="ios-package" value="HWPFeedReader" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/HWPFeedReader.h" target-dir="FeedReaderPlugin"/>
+    <source-file src="src/ios/HWPFeedReader.m" target-dir="FeedReaderPlugin"/>
+  </platform>
+
+  <platform name="wp7">
+    <source-file src="src/wp7/FeedReader.cs"/>
+  </platform>
+
+</plugin>
