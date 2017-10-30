@@ -5,6 +5,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class FeedReader extends CordovaPlugin {
+    /*
     private static final String TAG = "FeedReader";
     
     public void initialize(CordovaInterface cordova, CordovaWebView webView){
@@ -23,5 +24,5 @@ public class FeedReader extends CordovaPlugin {
             return false;
 
         }
-    }
+    }*/
 }
