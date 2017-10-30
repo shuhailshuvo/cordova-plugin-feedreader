@@ -8,7 +8,6 @@
     <license>MIT</license>
     <keywords></keywords>
     <repo>https://github.com/shuhailshuvo/cordova-plugin-feedreader.git</repo>
-    <issue>https://github.com/shuhailshuvo/cordova-plugin-feedreader/issues</issue>
 
     <!-- android -->
     <platform name="android">
