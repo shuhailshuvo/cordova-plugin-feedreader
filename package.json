@@ -1,12 +1,11 @@
 {
-  "name": "cordova-plugin-template",
+  "name": "cordova-plugin-feedreader",
   "version": "1.0.0",
   "cordova": {
-    "id": "cordova-plugin-template",
+    "id": "cordova-plugin-feedreader",
     "platforms": [
       "android",
-      "ios",
     ]
   },
-  "description": "A starting point for a Cordova Plugin"
+  "description": "Cordova plugin to read RSS feed"
 }
