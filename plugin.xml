@@ -10,7 +10,7 @@
   <description>Plugin for Cordova (or PhoneGap) 3.0+ to read rss feeds</description>
   <keywords>cordova,android,rss,atom,feed,reader,xml,parser</keywords>
   <repo>https://github.com/shuhailshuvo/cordova-plugin-feedreader.git</repo>
-
+  <license>MIT</license>
   <engines>
     <engine name="cordova" version=">=3.0.0" />
   </engines>
@@ -25,6 +25,7 @@
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="FeedReader">
         <param name="android-package" value="yapps.plugins.FeedReader"/>
+        <param name="onload" value="true"/>
       </feature>
     </config-file>
 
