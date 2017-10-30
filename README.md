@@ -1,2 +1,4 @@
-# cordova-plugin-feedreader
-Cordova plugin to read RSS feeds
+Cordova Plugin Template
+======
+
+This is a simple starting point for building a Cordova plugin on iOS and Android.

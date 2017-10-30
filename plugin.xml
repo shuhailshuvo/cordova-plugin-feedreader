@@ -1,51 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin
-  xmlns="http://apache.org/cordova/ns/plugins/1.0"
-  xmlns:android="http://schemas.android.com/apk/res/android"
-  id="cordova-plugin-feedreader"
-  version="1.0.0"
-  >
 
-  <name>cordova-plugin-feedreader</name>
-  <description>Plugin for Cordova (or PhoneGap) 3.0+ to read rss feeds</description>
-  <keywords>cordova,android,rss,atom,feed,reader,xml,parser</keywords>
-  <repo>https://github.com/shuhailshuvo/cordova-plugin-feedreader.git</repo>
-  <license>MIT</license>
-  <engines>
-    <engine name="cordova" version=">=3.0.0" />
-  </engines>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-feedreader"
+    version="1.0.0">
+    <name>Cordova Plugin FeedReader</name>
+    <description></description>
+    <license>MIT</license>
+    <keywords></keywords>
+    <repo>https://github.com/shuhailshuvo/cordova-plugin-feedreader.git</repo>
+    <issue>https://github.com/shuhailshuvo/cordova-plugin-feedreader/issues</issue>
 
-  <asset src="www/FeedReader.js" target="js/FeedReader.js"/>
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/FeedReader.js" name="FeedReader">
+        <runs/>
 
-  <js-module src="www/FeedReader.js" name="FeedReader">
-    <clobbers target="FeedReader" />
-  </js-module>
+        <!-- This is the window variable name you want, like window.FeedReader -->
+        <clobbers target="FeedReader" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="FeedReader">
+          <param name="android-package" value="com.example.FeedReader" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
 
-  <platform name="android">
-    <config-file target="res/xml/config.xml" parent="/*">
-      <feature name="FeedReader">
-        <param name="android-package" value="yapps.plugins.FeedReader"/>
-        <param name="onload" value="true"/>
-      </feature>
-    </config-file>
-
-    <source-file src="src/android/yapps/plugins/FeedReader/FeedReader.java" target-dir="src/yapps/plugins/FeedReader/"/>
-  </platform>
-
-  <platform name="ios">
-    
-    <config-file target="config.xml" parent="/widget">
-      <feature name="FeedReader">
-        <param name="ios-package" value="HWPFeedReader" />
-      </feature>
-    </config-file>
-
-    <header-file src="src/ios/HWPFeedReader.h" target-dir="FeedReaderPlugin"/>
-    <source-file src="src/ios/HWPFeedReader.m" target-dir="FeedReaderPlugin"/>
-  </platform>
-
-  <platform name="wp7">
-    <source-file src="src/wp7/FeedReader.cs"/>
-  </platform>
-
+      <source-file src="src/android/com/example/FeedReader.java" target-dir="src/com/example/" />
+    </platform>
 </plugin>
