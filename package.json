@@ -4,7 +4,7 @@
   "cordova": {
     "id": "cordova-plugin-feedreader",
     "platforms": [
-      "android",
+      "android"
     ]
   },
   "description": "Cordova plugin to read RSS feed"
