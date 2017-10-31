@@ -1,32 +1,22 @@
-
 var exec = require('cordova/exec');
-
 var PLUGIN_NAME = 'FeedReader';
-
 var FeedReader = {
-  echo: function(phrase, cb) {
-    exec(cb, null, PLUGIN_NAME, 'echo', [phrase]);
-  },
-  getDate: function(cb) {
-    exec(cb, null, PLUGIN_NAME, 'getDate', []);
-  },
-  read: function(url, successFunction, errorFunction)
-		{
-			options = jQuery.extend({
-				url: null,
+  read: function(url,success,failure){
+			var options = jQuery.extend({
+				url: url,
 				data: null,
 				cache: true,
-				success: null,
-				failure: null,
+				success: success,
+				failure: failure,
 				error: null,
 				global: true
 			}, options);
-
 			if (options.url) {
 				if (jQuery.isFunction(options.failure) && jQuery.type(options.error)==='null') {
 				  // Handle legacy failure option
 				  options.error = function(xhr, msg, e){
 					options.failure(msg, e);
+					console.log(msg,e);
 				  }
 				} else if (jQuery.type(options.failure) === jQuery.type(options.error) === 'null') {
 				  // Default error behavior if failure & error both unspecified
@@ -39,14 +29,21 @@ var FeedReader = {
 					url: options.url,
 					data: options.data,
 					cache: options.cache,
-					dataType: (jQuery.browser.msie) ? "text" : "xml",
+					dataType: "xml",
 					success: function(xml) {
 						var feed = new JFeed(xml);
-						if (jQuery.isFunction(options.success)) options.success(feed);
+						if (jQuery.isFunction(options.success)){
+							options.success(feed);
+						}
+						else{
+							console.log("success is not a function");
+						}
 					},
 					error: options.error,
 					global: options.global
 				});
+			}else{
+				console.log(options.url+" url not found");
 			}
 		}
 };
@@ -71,11 +68,6 @@ JFeed.prototype = {
     description: '',
     parse: function(xml) {
 
-        if (jQuery.browser.msie) {
-            var xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
-            xmlDoc.loadXML(xml);
-            xml = xmlDoc;
-        }
 
         if (jQuery('channel', xml).length == 1) {
 
